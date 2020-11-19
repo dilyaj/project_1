@@ -12,48 +12,46 @@ Truth or Drink
 // 3. Make a Players class
 // - The players should have these properties: player number, points 
 // - The players should have these methods: increase ppoints by 10 when truth is told
-// 4. Create container
-// - have container pop up once "start game" button is clicked
-//
+// 4. Create game card modal
+// - have modal pop up once "start game" button is clicked
+// 5. Create countdown timer
+// 6.
 
 
+const questions = [
+    "Who would die first in a zombie appocalypse?",
+    "How often do you wash your bedsheets?",
+    "Who would die first in a zombie appocalypse?",
+    "Who do you think has the worst hygiene?"
+]
+
+let points = 0;
+let counter = 0;
+
+for (let i = 0; i < questions.length; i++) {
+
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Cached DOM nodes
 ///////////////////////////////////////////////////////////////////////////////
 
-const modal = document.querySelector(".modal");
+const openModal = document.querySelector(".open-modal");
 const ratedEveryone = document.querySelector('.rated-everyone');
 const twentyOne = document.querySelector('.twenty-one');
 const modalInstructions = document.querySelector('.modal-instructions');
 const startGame = document.querySelector('.start-game');
 const gameContainer = document.querySelector('.game-container');
-const containerText = document.getElementById('container-text');
-const nextButton = document.getElementById("next-btn");
-const startBtn = document.querySelector('#start-button')
-
-
-document.addEventListener('DOMContentLoaded', () => {
+const modalInnerText = document.querySelector('.modal--inner');
+const nextQ = document.querySelector('.next-q');
 const timeLeftDisplay = document.querySelector('#time-left')
-const startBtn = document.querySelector('#start-button')
-let timeLeft = 10
 
 
-function countDown() {
-    setInterval(function(){
-        if(timeLeft <= 0 ) {
-            clearInterval(timeLeft = 0)
-        }
-        timeLeftDisplay.innerHTML = timeLeft;
-        timeLeft -=1
-    },   1000)
-}
-startBtn.addEventListener('click', countDown)
-})
-
-let points = 0;
 
 
+
+
+// clear interval vs set interval
 
 ///////////////////////////////////////////////////////////////////////////////
 // Create Players
@@ -79,11 +77,11 @@ const secondPlayer = new Player("Player 2", 0);
 ///////////////////////////////////////////////////////////////////////////////
 
 const toggleModal = () => {
-    modal.classList.toggle("open");
+    openModal.classList.toggle("open");
 }
 const openModalInstructions = () => {
     // remove the modal
-    modal.remove();
+    openModal.remove();
     // add the open class to the open modal
     modalInstructions.classList.add('open');
 }
@@ -93,8 +91,40 @@ const closeModalInstructions = () => {
 }
 const openGameContainer = () => {
     gameContainer.classList.add("open");
+    updateModalInnerText();
 }
 
+const updateModalInnerText = () => {
+    modalInnerText.innerHTML = questions[counter];
+    counter++;
+    }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    function countDown() {
+        // console.log("hello world")
+        let timeLeft = 10;
+        setInterval(function(){
+            if(timeLeft <= 0 ) {
+                clearInterval(timeLeft = 0)
+            }
+            timeLeftDisplay.innerHTML = timeLeft;
+            timeLeft -=1
+        },   1000)
+    }
+    startGame.addEventListener('click', countDown)
+    nextQ.addEventListener('click', countDown)
+    });
+
+
+
+
+
+
+
+    
+// click on next = next question
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -104,6 +134,9 @@ const openGameContainer = () => {
 ratedEveryone.addEventListener("click", openModalInstructions);
 twentyOne.addEventListener("click", openModalInstructions);
 startGame.addEventListener("click", closeModalInstructions);
+nextQ.addEventListener('click', updateModalInnerText);
+
+
 
 window.onload = toggleModal;
 
@@ -118,29 +151,13 @@ window.onload = toggleModal;
 // when time is up, "next round" buttons pops up
 // when click on "next round", next round begins
 
-const questions = [
-    {question: "Who would die first in a zombie appocalypse?"},
-    {question: "How often do you wash your bedsheets?"},
-    {question: "Who would die first in a zombie appocalypse?"},
-    {question: "Who do you think has the worst hygiene?"},
-];
 
-$("#question").hide();
-$("#next-btn").html(questions.length)
-function randomize() {
-    $("#question").hide("slow");
-    const randomQuestion = questions[Math.floor(Math.random()*(questions.length))];
-}
-randomize();
+// text on card change when "next" is clicked 
 
 
 
 
 
-
-// array of questions
-// loop to keep game running
-// update innerHTML
 // function round() 
 // if round < 10
 // open modal, stop @ 10

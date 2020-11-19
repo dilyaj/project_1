@@ -1,4 +1,4 @@
-.modal {
+.open-modal {
     background-color:orangered;
     color: white;
     padding: 30px;
@@ -14,11 +14,11 @@
     margin: auto;
     display: none;
   }
-  .modal.open {
+.open-modal.open {
     display: block;
   }
 
-  .modal-instructions {
+.modal-instructions {
     background-color:orangered;
     color: white;
     padding: 30px;
@@ -34,11 +34,11 @@
     margin: auto;
     display: none;
   }
-  .modal-instructions.open {
+.modal-instructions.open {
     display: block;
   }
 
-  .game-container {
+.game-container {
     background-color:orangered;
     color: white;
     padding: 30px;
@@ -55,6 +55,6 @@
     display: none;
   }
 
-  .game-container.open {
+.game-container.open {
     display: block;
   }
