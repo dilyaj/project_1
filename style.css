@@ -58,3 +58,7 @@
 .game-container.open {
     display: block;
   }
+
+.next-q.hide {
+    display: none;
+}
