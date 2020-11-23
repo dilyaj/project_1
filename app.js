@@ -163,6 +163,7 @@ const game = () => {
 
 let myTimer;
 let currentTime = 10;
+
 const timer = () => {
     if(currentTime <= 1) {
         clearInterval(myTimer);
@@ -179,11 +180,12 @@ const stopTimer = () => {
 const countDown = () => {
     myTimer = setInterval(timer, 1000)
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     game();
     startGame.addEventListener('click', countDown)
     nextQ.addEventListener('click', stopTimer)
-    });
+});
 
 
 
@@ -213,14 +215,6 @@ const questions = [
     "How much older than you could<br>a person that you date be?",
     "Have you ever been on the dark Web?",
 
-
-
-
-
-
-
-
-
 ]
 
 
@@ -233,7 +227,6 @@ startGame.addEventListener("click", closeModalInstructions);
 truth.addEventListener("click", truthPoints);
 drink.addEventListener("click", drinkPoints);
 nextQ.addEventListener('click', updateModalInnerText);
-
 
 
 window.onload = toggleModal;

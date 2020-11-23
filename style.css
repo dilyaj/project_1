@@ -33,8 +33,7 @@ button {
     background-color: #ffdac0;
     width:700px; 
     margin:0 auto;
-    font-size: 44px;
-   
+    font-size: 44px;   
 }
 #logo {
     width: 100%;
@@ -80,7 +79,7 @@ h3 {
     text-align: center;
     border-radius: 50%;
     position: fixed;
-    top: 56%; 
+    top: 62%; 
     transform: translateY(-45%);
     left:0; 
     right:0;
