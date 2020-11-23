@@ -134,7 +134,7 @@ const updateScoreInDOM = () => {
 // let the questions continue for 10 rounds
 // unless a player reaches 50 points first 
 function endGame() {
-    if (firstPlayer.points >= 50 || secondPlayer.points >= 50) {
+    if (firstPlayer.points >= 100 || secondPlayer.points >= 100) {
         if (firstPlayer.points > secondPlayer.points) {
             // need to display which player wins on screen
             winBox.innerHTML = ("CONGRATS PLAYER 1. YOU'RE LESS DRUNK THAN PLAYER 2.")
@@ -156,7 +156,7 @@ function endGame() {
 // create counter 
 // check win 
 const game = () => {
-    if(firstPlayer.score >= 50 || secondPlayer.score >= 50) {
+    if(firstPlayer.score >= 100 || secondPlayer.score >= 100) {
     endGame();
     }
 }
@@ -190,16 +190,37 @@ document.addEventListener('DOMContentLoaded', () => {
 const questions = [
     "How much money is in your<br>bank account right now?",
     "How often do you wash your bedsheets?",
-    "Who would make a better parent?",
-    "Your most embarrasing day at school?",
-    "What kind of dog does the<br>other player remind you of?",
+    "Would you rather be big spoon<br>or little spoon?",
     "What's your favorite conspiracy theory?",
-    "When was the last time you cried? and why?",
-    "Have you ever seen either of your parents naked?",
+    "When was the last time you cried?<br>why?",
     "If you had to give someone here a makeover,<br>who would it be?",
-    "Have you ever been arrested?",
-    "Have you ever tried to take<br>a sexy picture of yourself?",
-    "What's the first thing you'd do<br>if you woke up and were the oppsite sex?",
+    "Do you have anything on your record?",
+    "What's the first thing<br>you'd do if you woke up<br>and were the oppsite sex?",
+    "What's your favorite swear word?",
+    "What is the most illegal thing<br>you have ever done?",
+    "What was the last thing you searched<br>for on your phone web browser?<br>Show us.",
+    "Have you ever farted during a zoom call?",
+    "What app on your phone<br>do you waste the most time on?",
+    "How old were you when you<br>got your first cell phone?",
+    "If you HAD to play matchmaker,<br> which two people here would you match?",
+    "Do you think it's fine to pee in the shower?",
+    "What's something you're glad your<br>family doesn't know about you?",
+    `What's your most watched "kid" movie?`,
+    "Do you cover your laptop camera<br>when you're not using it?",
+    "Could you go a week without junk food?",
+    "Have you ever used someone elses'<br>toothbrush? Whose was it?",
+    "If you could have a dinner party<br>with any 3 people,<br>dead or alive,<br>who would it be and why?",
+    "How much older than you could<br>a person that you date be?",
+    "Have you ever been on the dark Web?",
+
+
+
+
+
+
+
+
+
 ]
 
 
