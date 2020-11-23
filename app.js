@@ -38,6 +38,7 @@ const nextQ = document.querySelector('.next-q');
 const player1Points = document.getElementById('player1Points');
 const player2Points = document.getElementById('player2Points');
 const timeLeftDisplay = document.querySelector('#time-left');
+const winBox = document.querySelector('.win-box'); 
 
 
 
@@ -95,22 +96,6 @@ const updateModalInnerText = () => {
     nextQ.classList.add('hide');
 }
 
-// Fisher-Yates shuffle algorithm
-// let randomNum = Math.floor(Math.random() * questions.length);
-
-// function shuffle(array) {
-//     let currentIndex = questions.length;
-//     while (0 !== currentIndex) {
-//         randomIndex = Math.floor(Math.random() * currentIndex);
-//         currentIndex -= 1;
-//         questions[currentIndex] = questions[randomIndex];
-//     }
-// }
-
-
-
-
-
 
 // add points to players    
 const truthPoints = () => {
@@ -152,12 +137,13 @@ function endGame() {
     if (firstPlayer.points >= 50 || secondPlayer.points >= 50) {
         if (firstPlayer.points > secondPlayer.points) {
             // need to display which player wins on screen
-            gameContainer.innerHTML = ("Ayeee congrats Player 1!<br>You're less drunk than Player 2 lol")
+            winBox.innerHTML = ("CONGRATS PLAYER 1. YOU'RE LESS DRUNK THAN PLAYER 2.")
+            gameContainer.innerHTML = ("")
             gameContainer.style.cssText = `background: url("https://media.giphy.com/media/YfMHLC2s6okBq/giphy.gif") 
                                             no-repeat; background-size: cover; height: 350px; border-radius: 50%;`
         } else if (secondPlayer.points > firstPlayer.points) {
-            gameContainer.innerHTML = ("Ayeee congrats Player 2!<br>You're less drunk than Player 1 lol")
-                        
+            winBox.innerHTML = ("CONGRATS PLAYER 2. YOU'RE LESS DRUNK THAN PLAYER 1.")
+            gameContainer.innerHTML = ("")
             gameContainer.style.cssText = `background: url("https://media.giphy.com/media/YfMHLC2s6okBq/giphy.gif") 
                                             no-repeat; background-size: cover; height: 350px; border-radius: 50%;`
         }
@@ -195,16 +181,6 @@ const countDown = () => {
 }
 document.addEventListener('DOMContentLoaded', () => {
     game();
-    // function countDown() {
-    //     let timeLeft = 10;
-    //     setInterval(function(){
-    //         if(timeLeft <= 0 ) {
-    //             clearInterval(timeLeft = 0)
-    //         }
-    //         timeLeftDisplay.innerHTML = timeLeft;
-    //         timeLeft -=1
-    //     },   1000)
-    // }
     startGame.addEventListener('click', countDown)
     nextQ.addEventListener('click', stopTimer)
     });
@@ -212,18 +188,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const questions = [
-    "How much money is in your bank account right now?",
+    "How much money is in your<br>bank account right now?",
     "How often do you wash your bedsheets?",
     "Who would make a better parent?",
     "Your most embarrasing day at school?",
-    "What kind of dog does the other player remind you of?",
+    "What kind of dog does the<br>other player remind you of?",
     "What's your favorite conspiracy theory?",
     "When was the last time you cried? and why?",
     "Have you ever seen either of your parents naked?",
-    "If you had to give someone here a makeover, who would it be?",
+    "If you had to give someone here a makeover,<br>who would it be?",
     "Have you ever been arrested?",
-    "Have you ever tried to take a sexy picture of yourself?",
-    "What's the first thing you'd do if you woke up and were the oppsite sex?",
+    "Have you ever tried to take<br>a sexy picture of yourself?",
+    "What's the first thing you'd do<br>if you woke up and were the oppsite sex?",
 ]
 
 
