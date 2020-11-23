@@ -7,12 +7,15 @@
     <title>Truth or Drink</title>
 </head>
 <body>
+    <div id="logo"> 
+        <img src="logo-dark.svg"> 
+    </div>
     <h3>Seconds left: <span id="time-left">10</span></h3>
+
     <!-- Game board -->
+    
     <div class="game-container">
-
         <div class="modal--inner">
-
         </div>
         <br>
 <button id="truth">Truth</button>
@@ -21,25 +24,30 @@
         </div>
 
 <!-- score board -->
-    Score:
-<p id='score'>
-<h1><span id="player1Points">0</span></h1>
-<h1><span id="player2Points">0</span></h1>
-</p>
+<table>
+    <p id='score'>
+     <tr>
+         <th>Player 1</th>
+         <th>Player 2</th>
+     </tr>
+     <td><h1 id="player1Points">0</h1></td>
+     <td><h1 id="player2Points">0</h1></td>
+</table>
 </div>
 </div>
 
     <!-- Modal-Instructions  -->
     <div class="modal-instructions">
-        <h2>How to Play</h2><br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, qui ea. Officia ea quidem asperiores! Excepturi exercitationem assumenda, beatae quibusdam deserunt debitis sint sequi fuga cum alias necessitatibus, libero veniam!
+        <h1> HOW TO PLAY</h1>
+        Cards will be randomly asked to both players.<br>On your turn you must choose to tell the cold hard truth to a question, or drink.
+        <br>"Truths" will be rewarded with 20 points,<br>"Drinks" with 10.<br>First player to 50 points, wins.
         <br><br>
         <button class="start-game">Start Game</button>
     </div>
     <!-- Opening Modal -->
     <div class="open-modal">
-        <h2>Welcome to Truth or Drink<br><br>
-            Select your mode:</h2>
-        <button class="rated-everyone">Rated Everyone</button>
+        <h2>WELCOME TO TRUTH OR DRINK<br><br>
+            Verify your age:</h2>
         <button class="twenty-one">21+</button>
     </div>
    

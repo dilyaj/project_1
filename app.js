@@ -3,7 +3,6 @@ Truth or Drink
 =========================*/
 // 1. Create a modal
 // - create modal - with 2 buttons
-// - if "Rated Everyone" is clicked then, make modal go away & open up those instructions
 // - if click on "21+", make modal go away & open those instructions
 // 2. Create an Instruction page
 // instructions page - needs a "let's play" button
@@ -27,7 +26,6 @@ Truth or Drink
 ///////////////////////////////////////////////////////////////////////////////
 
 const openModal = document.querySelector(".open-modal");
-const ratedEveryone = document.querySelector('.rated-everyone');
 const twentyOne = document.querySelector('.twenty-one');
 const modalInstructions = document.querySelector('.modal-instructions');
 const startGame = document.querySelector('.start-game');
@@ -88,12 +86,29 @@ const openGameContainer = () => {
     updateModalInnerText();
 }
 
+const randomNumGenerator = (arr) => {
+    return Math.floor(Math.random() * arr.length)
+}
 const updateModalInnerText = () => {
-    modalInnerText.innerHTML = questions[counter];
+    modalInnerText.innerHTML = questions[randomNumGenerator(questions)];
     counter++;
     nextQ.classList.add('hide');
 }
-    
+
+// Fisher-Yates shuffle algorithm
+// let randomNum = Math.floor(Math.random() * questions.length);
+
+// function shuffle(array) {
+//     let currentIndex = questions.length;
+//     while (0 !== currentIndex) {
+//         randomIndex = Math.floor(Math.random() * currentIndex);
+//         currentIndex -= 1;
+//         questions[currentIndex] = questions[randomIndex];
+//     }
+// }
+
+
+
 
 
 
@@ -137,15 +152,18 @@ function endGame() {
     if (firstPlayer.points >= 50 || secondPlayer.points >= 50) {
         if (firstPlayer.points > secondPlayer.points) {
             // need to display which player wins on screen
-            modalInnerText.innerHTML = ("You made it to 50 points! You win!")
-            // return win;
+            gameContainer.innerHTML = ("Ayeee congrats Player 1!<br>You're less drunk than Player 2 lol")
+            gameContainer.style.cssText = `background: url("https://media.giphy.com/media/YfMHLC2s6okBq/giphy.gif") 
+                                            no-repeat; background-size: cover; height: 350px; border-radius: 50%;`
         } else if (secondPlayer.points > firstPlayer.points) {
-            modalInnerText.innerHTML = ("You made it to 50 points! You win!")
-            // return win; 
+            gameContainer.innerHTML = ("Ayeee congrats Player 2!<br>You're less drunk than Player 1 lol")
+                        
+            gameContainer.style.cssText = `background: url("https://media.giphy.com/media/YfMHLC2s6okBq/giphy.gif") 
+                                            no-repeat; background-size: cover; height: 350px; border-radius: 50%;`
         }
-    //remove truth/drink/next
-
+        
     }
+    //remove truth/drink/next
 }
 
 
@@ -194,42 +212,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const questions = [
-    "Who would die first in a zombie appocalypse?",
+    "How much money is in your bank account right now?",
     "How often do you wash your bedsheets?",
-    "Who would die first in a zombie appocalypse?",
-    "Who do you think has the worst hygiene?",
-    "Who would die first in a zombie appocalypse?",
-    "How often do you wash your bedsheets?",
-    "Who would die first in a zombie appocalypse?",
-    "Who do you think has the worst hygiene?",
-    "Who would die first in a zombie appocalypse?",
-    "How often do you wash your bedsheets?",
-  
+    "Who would make a better parent?",
+    "Your most embarrasing day at school?",
+    "What kind of dog does the other player remind you of?",
+    "What's your favorite conspiracy theory?",
+    "When was the last time you cried? and why?",
+    "Have you ever seen either of your parents naked?",
+    "If you had to give someone here a makeover, who would it be?",
+    "Have you ever been arrested?",
+    "Have you ever tried to take a sexy picture of yourself?",
+    "What's the first thing you'd do if you woke up and were the oppsite sex?",
 ]
-
-
-// if player clicks on "Truth" button, player +20 points and pop up "next button"
-// if "drink", +10
-// pop up "next" button
-
-
-if (document.getElementById('truth').clicked === true) {
-    document.getElementById('score') = score + 20;
-}
-else if (document.getElementById('drink').clicked === true) {
-    document.getElementById('score') = score + 10;
-}
-
-
-
-    
 
 
 ///////////////////////////////////////////////////////////////////////////////
 // Event Listeners
 ///////////////////////////////////////////////////////////////////////////////
 
-ratedEveryone.addEventListener("click", openModalInstructions);
 twentyOne.addEventListener("click", openModalInstructions);
 startGame.addEventListener("click", closeModalInstructions);
 truth.addEventListener("click", truthPoints);
@@ -239,10 +240,4 @@ nextQ.addEventListener('click', updateModalInnerText);
 
 
 window.onload = toggleModal;
-
-///////////////////////////////////////////////////////////////////////////////
-// Game board
-///////////////////////////////////////////////////////////////////////////////
-
-
 
